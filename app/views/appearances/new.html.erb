@@ -1,0 +1,16 @@
+<%= form_for @appearance do |f| %>
+    <h1> Guest </h1>
+    <% @guests.each do |guest|%>
+      <p><%= check_box_tag 'appearance[guest_id]', guest.id, checked=false,{} %> <%= guest.name %>
+    <% end %></p>
+    <h1> Episode </h1>
+    <% @episodes.each do |episode|%>
+      <p><%= check_box_tag 'appearance[episode_id]', episode.id, checked=false, {} %> <%= "Episode #{episode.number} - #{episode.date}" %>
+    <% end %></p>
+    <%= f.label :rating %>
+    <%= f.text_field :rating %>
+    <br>
+    <br>
+    <%= f.submit %>
+
+<%end%>
